@@ -1,0 +1,109 @@
+
+<br>
+<div class="container text-black" style="background-color:lightblue;">
+<div >
+    <form #f="ngForm" (ngSubmit)="onSubmit(name.value,email.value) ; f.reset()" novalidate>
+
+       <br>
+        <div >
+        <label for="name">Name:</label><br>
+        <input  type="text" id="name" name="name" [class.is-invalid]="name.invalid" class="form-control is-invalid" ngModel  required #name="ngModel"  [(ngModel)]="editname"><br>
+        
+        </div>
+
+        <div >
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" [class.is-invalid]="email.invalid" class="form-control is-invalid" ngModel  required #email="ngModel" [(ngModel)]="editemail"><br>
+        </div>
+
+        <div >
+        <label for="Date">Date:</label><br>
+        <input  type="date" id="date" name="date" [class.is-invalid]="date.invalid" class="form-control is-invalid" ngModel  required #date="ngModel" [(ngModel)]="editdate"><br>
+        </div>
+
+        <div >
+            <label for="age">Age:</label><br>
+            <input  type="number" id="age" name="age" [class.is-invalid]="age.invalid" class="form-control is-invalid" ngModel  required #age="ngModel"  [(ngModel)]="editage"><br>
+            </div>
+        
+        
+
+            <div >
+                <label for="id">Id:</label><br>
+                <input  type="text" id="id" name="id" [class.is-invalid]="id.invalid" class="form-control is-invalid" ngModel  required #id="ngModel" [(ngModel)]="editid"><br>
+            </div>
+            
+            <div>
+                <label for="rollNo">Roll Number:</label><br>
+                <input type="number" id="rollNo" name="rollNo"  [class.is-invalid]="rollNo.invalid" class="form-control is-invalid" ngModel required #rollNo="ngModel" [(ngModel)]="editrollNo"><br>
+            </div>    
+
+            <div >    
+                <label for="isMale">Gender</label><br>
+                <label for="male">Male</label>
+                <input type="radio" id="isMale" name="isMale" value="true"   ngModel #isMale="ngModel" [(ngModel)]="editisMale">
+                <label for="male">Female</label>
+                <input type="radio" id="isMale" name="isMale" value="false"   ngModel #isMale="ngModel" [(ngModel)]="editisMale">
+                </div> 
+
+    
+        <br>
+        
+            <input type="submit" (click)="datatodb(name.value,email.value,date.value,age.value,id.value,rollNo.value,isMale.value);fetchdata();" value="Submit" class="btn btn-success"><br><br>
+            <input type="submit" (click)="editdatadb();fetchdata();" value="Reflect Changes" class="btn btn-success btn-outline-primary">
+            <br>
+           
+        
+        
+    </form>
+
+    <div class="container">
+        <h2>Hover Rows</h2>
+                    
+
+        
+        <div class="container">
+            <h2>From Database</h2>
+                        
+            <table class="table table-hover">
+                <th>age</th>
+                <th>date</th>
+                <th>email</th>
+                <th>name</th>
+                <th>id</th>
+                <th>ismale</th>
+                <th>roll no</th>
+                
+                 <tr *ngFor="let row of payload1;let j=index">
+                <td *ngFor = "let column of header">
+                {{row[column]}}
+                    </td>
+                    <td>  
+                    
+                        <button type="button" (click)="retrievebyid(j);"  class="btn btn-success btn btn-warning">Edit</button>
+                        
+               
+            </td>  
+                    
+                    <td><button class=" btn btn-sm btn-warning" (click)="deletedata(j)">Delete
+                    </button></td>
+                  
+                </tr>
+                
+                
+               
+                   
+                
+            </table>
+
+            
+
+      
+      
+    
+    
+</div>
+</div>
+<br>
+
+
