@@ -107,10 +107,10 @@ export class SignupComponent implements OnInit {
       console.log(this.payload1);
     });
   }
-  datatodb(name,email,date,age,id,rollNo,isMale){
+  datatodb(name,email,date,age,rollNo,isMale){
     this.payload.push(name,email);
     console.log(isMale);
-    this.userservice.adddata(name,email,date,age,id,rollNo,isMale);
+    this.userservice.adddata(name,email,date,age,rollNo,isMale);
     this.fetchdata();
   }
 

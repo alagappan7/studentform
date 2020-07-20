@@ -26,13 +26,7 @@
             <input  type="number" id="age" name="age" [class.is-invalid]="age.invalid" class="form-control is-invalid" ngModel  required #age="ngModel"  [(ngModel)]="editage"><br>
             </div>
         
-        
-
-            <div >
-                <label for="id">Id:</label><br>
-                <input  type="text" id="id" name="id" [class.is-invalid]="id.invalid" class="form-control is-invalid" ngModel  required #id="ngModel" [(ngModel)]="editid"><br>
-            </div>
-            
+    
             <div>
                 <label for="rollNo">Roll Number:</label><br>
                 <input type="number" id="rollNo" name="rollNo"  [class.is-invalid]="rollNo.invalid" class="form-control is-invalid" ngModel required #rollNo="ngModel" [(ngModel)]="editrollNo"><br>
@@ -48,11 +42,13 @@
 
     
         <br>
-        
-            <input type="submit" (click)="datatodb(name.value,email.value,date.value,age.value,id.value,rollNo.value,isMale.value);fetchdata();" value="Submit" class="btn btn-success"><br><br>
-            <input type="submit" (click)="editdatadb();fetchdata();" value="Reflect Changes" class="btn btn-success btn-outline-primary">
+            <div *ngIf="iscollapsed">
+            <input type="submit" (click)="datatodb(name.value,email.value,date.value,age.value,rollNo.value,isMale.value);fetchdata();" value="Submit" class="btn btn-success"><br><br>
+            </div>
+            <div *ngIf="!iscollapsed">
+            <input type="submit" (click)="editdatadb();fetchdata();" value="Update" class="btn btn-success btn-outline-primary">
             <br>
-           
+            </div>
         
         
     </form>

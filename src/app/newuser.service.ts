@@ -16,7 +16,7 @@ export class NewuserService {
     return this.http.get("http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students");
   }
 
-    adddata(name:string,email:string,date:string,age:number,id:string,rollNo:number,isMale:boolean){
+    adddata(name:string,email:string,date:string,age:number,rollNo:number,isMale:boolean){
       
       const headers = new Headers();
       headers.append('Content-Type', 'application/json; charset=utf-8');
