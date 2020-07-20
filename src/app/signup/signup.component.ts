@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
   rollNo:number;
   gender:string;
 
-  header=['age','date','email','name','id','isMale','rollNo']
+  header=['age','date','email','name','isMale','rollNo']
   numberdata=[];
   number:string;
   editname:string;
@@ -78,12 +78,9 @@ export class SignupComponent implements OnInit {
     this.Name.splice(i,1);
     this.Mail.splice(i,1);
  }
-  toggle(i){
-    this.num=i;
-    this.iscollapsed=!this.iscollapsed;
-    this.name1=this.Name[i];
-    this.email1=this.Mail[i];
+  toggle(){
     
+    console.log("data");
 
   }
 
@@ -94,10 +91,9 @@ export class SignupComponent implements OnInit {
   }
 
   reflect(){
-    console.log(this.NAME);
+    
     this.iscollapsed=!this.iscollapsed;
-    this.Name[this.num]=this.NAME;
-    this.Mail[this.num]=this.MAIL;
+    console.log(this.iscollapsed);
     
   }
   fetchdata() {
@@ -109,7 +105,7 @@ export class SignupComponent implements OnInit {
   }
   datatodb(name,email,date,age,rollNo,isMale){
     this.payload.push(name,email);
-    console.log(isMale);
+    
     this.userservice.adddata(name,email,date,age,rollNo,isMale);
     this.fetchdata();
   }
@@ -118,7 +114,7 @@ export class SignupComponent implements OnInit {
 
   retrievebyid(j){
      this.val=j;
-     this.iscollapsed=!this.iscollapsed;
+     
      this.editdata=this.payload1[this.val];
      console.log(this.editdata["name"]);
      this.editname=this.editdata['name'];
@@ -136,6 +132,13 @@ export class SignupComponent implements OnInit {
     
     this.userservice.updatedata(this.editname,this.editemail,this.editage,this.editdate,this.editid,this.editrollNo,this.editisMale);
     this.fetchdata();
+    this.editname=null;
+    this.editemail=null;
+    this.editage=null;
+    this.editdate=null;
+    this.editid=null;
+    this.editrollNo=null;
+    this.editisMale=null;
     
   }
 

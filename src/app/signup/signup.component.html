@@ -35,9 +35,9 @@
             <div >    
                 <label for="isMale">Gender</label><br>
                 <label for="male">Male</label>
-                <input type="radio" id="isMale" name="isMale" value="true"   ngModel #isMale="ngModel" [(ngModel)]="editisMale">
+                <input type="radio" id="isMale" name="isMale" value="true"   ngModel #isMale="ngModel" [(ngModel)]="editisMale" [value]="true">
                 <label for="male">Female</label>
-                <input type="radio" id="isMale" name="isMale" value="false"   ngModel #isMale="ngModel" [(ngModel)]="editisMale">
+                <input type="radio" id="isMale" name="isMale" value="false"   ngModel #isMale="ngModel" [(ngModel)]="editisMale" [value]="false">
                 </div> 
 
     
@@ -46,7 +46,7 @@
             <input type="submit" (click)="datatodb(name.value,email.value,date.value,age.value,rollNo.value,isMale.value);fetchdata();" value="Submit" class="btn btn-success"><br><br>
             </div>
             <div *ngIf="!iscollapsed">
-            <input type="submit" (click)="editdatadb();fetchdata();" value="Update" class="btn btn-success btn-outline-primary">
+            <input type="submit" (click)="editdatadb();fetchdata();reflect();" value="Update" class="btn btn-success btn-outline-primary">
             <br>
             </div>
         
@@ -66,7 +66,7 @@
                 <th>date</th>
                 <th>email</th>
                 <th>name</th>
-                <th>id</th>
+                
                 <th>ismale</th>
                 <th>roll no</th>
                 
@@ -76,7 +76,7 @@
                     </td>
                     <td>  
                     
-                        <button type="button" (click)="retrievebyid(j);"  class="btn btn-success btn btn-warning">Edit</button>
+                        <button type="button" (click)="retrievebyid(j);reflect();"  class="btn btn-success btn btn-warning">Edit</button>
                         
                
             </td>  
