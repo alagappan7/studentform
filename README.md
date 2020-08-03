@@ -1,3 +1,9 @@
+FrontEnd application developed using Angular
+Linked to already developed server environment
+List the data of all students in the database in a table.
+Forms used for adding new users 
+Edit operations and delete operations can also be performed.
+
 # MyFirstapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
